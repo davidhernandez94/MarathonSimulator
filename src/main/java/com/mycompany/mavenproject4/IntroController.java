@@ -53,7 +53,6 @@ public class IntroController implements Initializable {
                 trans.play();
             }
         });
-        
     }
     
     /**

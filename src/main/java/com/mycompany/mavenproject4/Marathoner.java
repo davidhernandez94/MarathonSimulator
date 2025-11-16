@@ -5,6 +5,7 @@
 package com.mycompany.mavenproject4;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -34,5 +35,4 @@ public class Marathoner {
     public void setImage(Image image) {
         this.image = image;
     }
-    
 }
