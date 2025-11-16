@@ -4,14 +4,13 @@
  */
 package com.mycompany.mavenproject4;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.ImageCursor;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
@@ -21,7 +20,6 @@ import javafx.util.Duration;
  * @author 6309110
  */
 public class IntroController implements Initializable {
-    private Image[] characters = new Image[4];
     @FXML
     private Label welcomeLabel;
     @FXML
@@ -34,18 +32,35 @@ public class IntroController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        for (int i = 0; i < 4; i++) {
-            characters[i] = new Image("file:src/bjorkImages/bjork1.jpg");
-        }
-        int charIdx = 1;
+        characterImageView.setImage(App.runners[0].getImage());
+        characterName.setText(App.runners[0].getName());
+        int[] charIdx = {0};
         RotateTransition trans = new RotateTransition(new Duration(2000), characterImageView);
         trans.setFromAngle(0);
         trans.setToAngle(359);
         trans.play();
-//        trans.setOnFinished(eh -> {
-//            
-//        });
+        trans.setOnFinished(eh -> {
+            if (charIdx[0] == 3) {
+                try {
+                    switchToMain();
+                } catch (IOException ex) {
+                    System.getLogger(IntroController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                }
+            } else {
+                charIdx[0]++;
+                characterImageView.setImage(App.runners[charIdx[0]].getImage());
+                characterName.setText(App.runners[charIdx[0]].getName());
+                trans.play();
+            }
+        });
         
-        characterImageView.setImage(new Image("file:bjorkImages/bjork1.jpg"));
+    }
+    
+    /**
+     * when intro slideshow is done, move on to marathon scene
+     * @throws IOException 
+     */
+    public void switchToMain() throws IOException {
+        App.setRoot("main");
     }
 }

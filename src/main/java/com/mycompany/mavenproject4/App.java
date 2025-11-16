@@ -7,17 +7,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.image.Image;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
-
+    
     private static Scene scene;
+    protected static Marathoner[] runners = new Marathoner[4];
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("intro"), 640, 480);
+        makeRunners();
+        scene = new Scene(loadFXML("main"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }
@@ -34,5 +37,13 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-
+    
+    public static void makeRunners() {
+        String[] names = {"Gideon", "Alphonse", "Jean-Paul", "Mohammed"};
+        Image[] images = new Image[4];
+        for (int i = 0; i < 4; i++) {
+            images[i] = new Image("file:bjorkImages/bjork" + (i + 1) + ".jpg");
+            runners[i] = new Marathoner(names[i], images[i]);
+        }
+    }
 }
