@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
 
 /**
@@ -32,6 +33,9 @@ public class IntroController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        AudioClip clip = new AudioClip("file:more_to_life_than_this.mp3");
+        clip.play();
+        
         characterImageView.setImage(App.runners[0].getImage());
         characterName.setText(App.runners[0].getName());
         int[] charIdx = {0};
