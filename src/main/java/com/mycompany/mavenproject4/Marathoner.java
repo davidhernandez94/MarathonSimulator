@@ -5,11 +5,9 @@
 package com.mycompany.mavenproject4;
 
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 /**
- *
- * @author User
+ * @author David Hernandez
  */
 public class Marathoner {
     private String name;

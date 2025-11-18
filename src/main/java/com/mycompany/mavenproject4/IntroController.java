@@ -21,6 +21,7 @@ import javafx.util.Duration;
  * @author 6309110
  */
 public class IntroController implements Initializable {
+    private static final AudioClip clip = new AudioClip("file:more_to_life_than_this.mp3");
     @FXML
     private Label welcomeLabel;
     @FXML
@@ -33,16 +34,17 @@ public class IntroController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        AudioClip clip = new AudioClip("file:more_to_life_than_this.mp3");
-        clip.play();
-        
+        clip.play(); // plays music 
         characterImageView.setImage(App.runners[0].getImage());
         characterName.setText(App.runners[0].getName());
         int[] charIdx = {0};
+        // rotating transition to show different players
         RotateTransition trans = new RotateTransition(new Duration(2000), characterImageView);
         trans.setFromAngle(0);
         trans.setToAngle(359);
         trans.play();
+        // plays one animation at a time and launches next one
+        // if it's final runner, change to main scene
         trans.setOnFinished(eh -> {
             if (charIdx[0] == 3) {
                 try {
@@ -64,6 +66,7 @@ public class IntroController implements Initializable {
      * @throws IOException 
      */
     public void switchToMain() throws IOException {
+        clip.stop();
         App.setRoot("main");
     }
 }

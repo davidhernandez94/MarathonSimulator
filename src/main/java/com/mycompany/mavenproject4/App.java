@@ -19,7 +19,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         makeRunners();
-        scene = new Scene(loadFXML("intro"), 640, 480);
+        scene = new Scene(loadFXML("main"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }
@@ -37,6 +37,9 @@ public class App extends Application {
         launch();
     }
     
+    /**
+     * make 4 marathoners to go inside array
+     */
     public static void makeRunners() {
         String[] names = {"Gideon", "Alphonse", "Jean-Paul", "Mohammed"};
         Image[] images = new Image[4];

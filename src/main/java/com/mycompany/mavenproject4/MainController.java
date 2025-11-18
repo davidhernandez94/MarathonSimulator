@@ -19,7 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.media.Media;
+import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
 
 /**
@@ -29,8 +29,9 @@ import javafx.util.Duration;
  */
 public class MainController implements Initializable {
 
-    private TranslateTransition[] transs = new TranslateTransition[4];
+    private TranslateTransition[] transs = new TranslateTransition[8];
     private ParallelTransition para;
+    private static final AudioClip clip1 = new AudioClip("file:i_miss_you.mp3");
     @FXML
     private GridPane finishLine;
     @FXML
@@ -63,6 +64,10 @@ public class MainController implements Initializable {
         race();
     }    
     
+    /**
+     * make black and white finish line at the end of the track 
+     * by making a gridpane and putting black panes inside every second one
+     */
     private void makeFinishLine() {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 13; j++) {
@@ -75,14 +80,22 @@ public class MainController implements Initializable {
         }
     }
     
+    /**
+     * the marathon simulation:
+     * each runner has a horizontal transition and a vertical transition
+     * all of them are in para 
+     * speed of each is a random number from 3000-6000
+     * plays audioclip during race
+     */
     private void race() {
+        clip1.play();
         runner1.setImage(App.runners[0].getImage());
         runner2.setImage(App.runners[1].getImage());
         runner3.setImage(App.runners[2].getImage());
         runner4.setImage(App.runners[3].getImage());
         
         Random rand = new Random();
-        Duration[] durations = new Duration[4];
+        Duration[] durations = new Duration[5];
         for (int i = 0; i < 4; i++) {
             durations[i] = new Duration(3000 + rand.nextInt(3000));
         }
@@ -90,6 +103,17 @@ public class MainController implements Initializable {
         transs[1] = new TranslateTransition(durations[1], runner2);
         transs[2] = new TranslateTransition(durations[2], runner3);
         transs[3] = new TranslateTransition(durations[3], runner4);
+        transs[4] = new TranslateTransition(new Duration(500), runner1);
+        transs[5] = new TranslateTransition(new Duration(200), runner2);
+        transs[6] = new TranslateTransition(new Duration(400), runner3);
+        transs[7] = new TranslateTransition(new Duration(300), runner4);
+        for (int i = 4; i < 8; i++) {
+            transs[i].setAutoReverse(true);
+            transs[i].setCycleCount(6);
+            transs[i].setFromY((i - 4) * 3);
+            transs[i].setToY((i - 4) * 3 + 10);
+        }
+        
         for (int i = 0; i < 4; i++) {
             transs[i].setFromX(70);
             transs[i].setToX(420);
@@ -99,7 +123,11 @@ public class MainController implements Initializable {
         para.setOnFinished(eh -> ending());
     }
     
+    /**
+     * displays winner message and shows who won
+     */
     private void ending() {
+        // iterates through the list of players and finds the fastest one
         int winIdx = 0;
         for (int i = 0; i < 4; i++) {
             if (transs[winIdx].getDuration().greaterThan(transs[i].getDuration())) {
@@ -112,19 +140,30 @@ public class MainController implements Initializable {
         resultImgView.setImage(winner.getImage());
     }
 
+    /**
+     * when play button is pressed, play animation
+     * @param event action event
+     */
     @FXML
     private void onPlayPressed(ActionEvent event) {
         para.play();
     }
 
+    /**
+     * when exit button is pressed, exit scene
+     * @param event acion event
+     */
     @FXML
     private void onExitPressed(ActionEvent event) {
         Platform.exit();
     }
 
+    /**
+     * when pause button is pressed, pause animation
+     * @param event action event
+     */
     @FXML
     private void onPausePressed(ActionEvent event) {
         para.pause();
     }
-    
 }

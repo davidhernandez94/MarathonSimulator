@@ -50,19 +50,18 @@
                   <ImageView fx:id="runner4" fitHeight="43.0" fitWidth="52.0" layoutX="72.0" layoutY="202.0" pickOnBounds="true" />
                   <ImageView fx:id="runner3" fitHeight="43.0" fitWidth="52.0" layoutX="72.0" layoutY="137.0" pickOnBounds="true" />
                   <ImageView fx:id="runner2" fitHeight="43.0" fitWidth="52.0" layoutX="72.0" layoutY="80.0" pickOnBounds="true" />
-                  <Pane fx:id="resultPane" layoutX="124.0" layoutY="73.0" prefHeight="200.0" prefWidth="323.0" style="-fx-background-color: #f0ffc0;" visible="false">
+                  <Pane fx:id="resultPane" layoutX="198.0" layoutY="50.0" prefHeight="191.0" prefWidth="279.0" style="-fx-background-color: #f0ffc0;" visible="false">
                      <children>
-                        <Label fx:id="resultLabel" alignment="CENTER" layoutX="13.0" prefHeight="49.0" prefWidth="298.0" />
-                        <ImageView fx:id="resultImgView" disable="true" fitHeight="131.0" fitWidth="216.0" layoutX="54.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="resultLabel" alignment="CENTER" layoutX="13.0" prefHeight="49.0" prefWidth="270.0" />
+                        <ImageView fx:id="resultImgView" disable="true" fitHeight="116.0" fitWidth="174.0" layoutX="54.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </Pane>
                </children></Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f0ffff;">
                <children>
-                  <Button id="playButton" fx:id="playButton" layoutX="32.0" layoutY="38.0" mnemonicParsing="false" onAction="#onPlayPressed" text="play" />
-                  <Button id="exitButton" fx:id="exitButton" layoutX="102.0" layoutY="95.0" mnemonicParsing="false" onAction="#onExitPressed" text="exit" />
-                  <Button id="pauseButton" fx:id="pauseButton" layoutX="160.0" layoutY="38.0" mnemonicParsing="false" onAction="#onPausePressed" text="pause" />
-                  <Label id="resultLabel" layoutX="261.0" prefHeight="153.0" prefWidth="339.0" />
+                  <Button id="playButton" fx:id="playButton" layoutX="32.0" layoutY="38.0" mnemonicParsing="false" onAction="#onPlayPressed" style="-fx-background-color: lime;" text="play" />
+                  <Button id="exitButton" fx:id="exitButton" layoutX="102.0" layoutY="95.0" mnemonicParsing="false" onAction="#onExitPressed" style="-fx-background-color: red;" text="exit" />
+                  <Button id="pauseButton" fx:id="pauseButton" layoutX="160.0" layoutY="38.0" mnemonicParsing="false" onAction="#onPausePressed" style="-fx-background-color: pink;" text="pause" />
                </children>
             </Pane>
          </children>
