@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject4.IntroController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffe0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject4.IntroController">
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="welcomeLabel" text="Welcome to Marathon Simulator" />
+            <Label fx:id="welcomeLabel" style="-fx-font-size: 30;" text="Welcome to Marathon Simulator!!!" />
             <ImageView id="introImageView" fx:id="characterImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <Label id="charName" fx:id="characterName" />
+            <Label id="charName" fx:id="characterName" style="-fx-font-size: 20;" />
          </children>
       </VBox>
    </center>

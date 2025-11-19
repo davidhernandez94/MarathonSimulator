@@ -36,7 +36,7 @@ public class IntroController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         clip.play(); // plays music 
         characterImageView.setImage(App.runners[0].getImage());
-        characterName.setText(App.runners[0].getName());
+        characterName.setText("runner name: " + App.runners[0].getName());
         int[] charIdx = {0};
         // rotating transition to show different players
         RotateTransition trans = new RotateTransition(new Duration(2000), characterImageView);
@@ -55,7 +55,7 @@ public class IntroController implements Initializable {
             } else {
                 charIdx[0]++;
                 characterImageView.setImage(App.runners[charIdx[0]].getImage());
-                characterName.setText(App.runners[charIdx[0]].getName());
+                characterName.setText("runner name: " + App.runners[charIdx[0]].getName());
                 trans.play();
             }
         });

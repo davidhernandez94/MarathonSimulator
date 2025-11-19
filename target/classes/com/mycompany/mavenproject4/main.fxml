@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject4.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject4.MainController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -50,18 +50,18 @@
                   <ImageView fx:id="runner4" fitHeight="43.0" fitWidth="52.0" layoutX="72.0" layoutY="202.0" pickOnBounds="true" />
                   <ImageView fx:id="runner3" fitHeight="43.0" fitWidth="52.0" layoutX="72.0" layoutY="137.0" pickOnBounds="true" />
                   <ImageView fx:id="runner2" fitHeight="43.0" fitWidth="52.0" layoutX="72.0" layoutY="80.0" pickOnBounds="true" />
-                  <Pane fx:id="resultPane" layoutX="226.0" layoutY="205.0" prefHeight="183.0" prefWidth="294.0" style="-fx-background-color: #f0ffc0;" visible="false">
-                     <children>
-                        <Label fx:id="resultLabel" alignment="CENTER" layoutX="13.0" prefHeight="49.0" prefWidth="270.0" />
-                        <ImageView fx:id="resultImgView" disable="true" fitHeight="116.0" fitWidth="174.0" layoutX="54.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" />
-                     </children>
-                  </Pane>
                </children></Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f0ffff;">
                <children>
-                  <Button id="playButton" fx:id="playButton" layoutX="32.0" layoutY="38.0" mnemonicParsing="false" onAction="#onPlayPressed" style="-fx-background-color: lime;" text="play" />
-                  <Button id="exitButton" fx:id="exitButton" layoutX="102.0" layoutY="95.0" mnemonicParsing="false" onAction="#onExitPressed" style="-fx-background-color: red;" text="exit" />
-                  <Button id="pauseButton" fx:id="pauseButton" layoutX="160.0" layoutY="38.0" mnemonicParsing="false" onAction="#onPausePressed" style="-fx-background-color: pink;" text="pause" />
+                  <Button id="playButton" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" onAction="#onPlayPressed" prefHeight="44.0" prefWidth="71.0" style="-fx-background-color: lime; -fx-font-size: 20;" text="play" />
+                  <Button id="exitButton" layoutX="75.0" layoutY="91.0" mnemonicParsing="false" onAction="#onExitPressed" prefHeight="42.0" prefWidth="68.0" style="-fx-background-color: red; -fx-font-size: 20;" text="exit" />
+                  <Button id="pauseButton" layoutX="160.0" layoutY="38.0" mnemonicParsing="false" onAction="#onPausePressed" prefHeight="53.0" prefWidth="88.0" style="-fx-background-color: pink; -fx-font-size: 20;" text="pause" />
+                  <Pane fx:id="resultPane" layoutX="254.0" layoutY="-2.0" prefHeight="158.0" prefWidth="348.0" style="-fx-background-color: #f0ffc0;" visible="false">
+                     <children>
+                        <Label fx:id="resultLabel" alignment="CENTER" layoutX="13.0" prefHeight="49.0" prefWidth="270.0" style="-fx-font-size: 20;" />
+                        <ImageView fx:id="resultImgView" disable="true" fitHeight="119.0" fitWidth="134.0" layoutX="98.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
                </children>
             </Pane>
          </children>

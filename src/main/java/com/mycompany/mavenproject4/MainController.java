@@ -7,6 +7,7 @@ package com.mycompany.mavenproject4;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import javafx.animation.Animation;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -35,12 +36,6 @@ public class MainController implements Initializable {
     @FXML
     private GridPane finishLine;
     @FXML
-    private Button playButton;
-    @FXML
-    private Button exitButton;
-    @FXML
-    private Button pauseButton;
-    @FXML
     private ImageView runner1;
     @FXML
     private ImageView runner4;
@@ -66,7 +61,7 @@ public class MainController implements Initializable {
     
     /**
      * make black and white finish line at the end of the track 
-     * by making a gridpane and putting black panes inside every second one
+     * by making a GridPane and putting black panes inside every second one
      */
     private void makeFinishLine() {
         for (int i = 0; i < 5; i++) {
@@ -85,7 +80,7 @@ public class MainController implements Initializable {
      * each runner has a horizontal transition and a vertical transition
      * all of them are in para 
      * speed of each is a random number from 3000-6000
-     * plays audioclip during race
+     * plays audio clip during race
      */
     private void race() {
         clip1.play();
@@ -109,18 +104,17 @@ public class MainController implements Initializable {
         transs[7] = new TranslateTransition(new Duration(300), runner4);
         for (int i = 4; i < 8; i++) {
             transs[i].setAutoReverse(true);
-            transs[i].setCycleCount(6);
+            transs[i].setCycleCount(Animation.INDEFINITE);
             transs[i].setFromY((i - 4) * 3);
             transs[i].setToY((i - 4) * 3 + 10);
         }
         
         for (int i = 0; i < 4; i++) {
-            transs[i].setFromX(70);
+            transs[i].setFromX(0);
             transs[i].setToX(420);
+            transs[i].setOnFinished(eh -> ending());
         }
         para = new ParallelTransition(transs);
-        para.play();
-        para.setOnFinished(eh -> ending());
     }
     
     /**
@@ -151,7 +145,7 @@ public class MainController implements Initializable {
 
     /**
      * when exit button is pressed, exit scene
-     * @param event acion event
+     * @param event action event
      */
     @FXML
     private void onExitPressed(ActionEvent event) {

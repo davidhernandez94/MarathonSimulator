@@ -20,6 +20,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         makeRunners();
         scene = new Scene(loadFXML("main"), 640, 480);
+        stage.setTitle("Marathon Simulator");
         stage.setScene(scene);
         stage.show();
     }

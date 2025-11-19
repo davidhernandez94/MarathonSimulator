@@ -23,7 +23,8 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
-            <version>13</version> 
+            <version>13</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
     <build>
